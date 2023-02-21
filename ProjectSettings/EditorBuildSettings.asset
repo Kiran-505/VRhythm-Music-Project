@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/DET-scenes/PokeExamples 1.unity
+    guid: 10fb1223b2365574b92a6f3f001752ae
+  - enabled: 0
+    path: Assets/DET-scenes/Guitar.unity
+    guid: e451faa507bcd864bae949d63b582eb2
+  - enabled: 1
+    path: Assets/DET-scenes/Guitar 2.unity
+    guid: bf23c0a324e756e45b0c2d5503614be1
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7cd3e9bdf2ef39d488101dc6f88a7c97, type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6a70b6978e7b990468cc0c6fff053b62, type: 2}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 64652425da81359498c21d9a785f44bc, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f5f343ec017b7ee47ae7878422d03a5e, type: 2}
