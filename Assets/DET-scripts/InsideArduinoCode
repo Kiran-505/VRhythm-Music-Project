@@ -1,0 +1,62 @@
+int potValue = 0;
+int forceVal = 0;
+int forceVal2 = 0;
+const int ledPinB = 8;
+const int ledPinY = 7;
+
+void setup() {
+  pinMode(ledPinB, OUTPUT);
+  pinMode(ledPinY, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
+  Serial.begin(9600);
+}
+
+void loop() {
+  potValue = analogRead(A0);
+  forceVal = analogRead(A2);
+  forceVal2 = analogRead(A3);
+  Serial.print(potValue);
+  Serial.print(",");
+  Serial.print(forceVal);
+  Serial.print(",");
+  Serial.print(forceVal2);
+  Serial.println();
+  delay(10);
+
+
+  //String unityRecv = Serial.readString();
+  if (Serial.available() > 0) {
+    //digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    // Got something
+    //int read = Serial.read();
+    char unityRecv = Serial.read();
+    //Serial.print(unityRecv);
+    if (unityRecv == 'b') {
+      //blinkerBLUE();
+      digitalWrite(ledPinB, HIGH);
+      digitalWrite(ledPinY, LOW);
+    } 
+    else if (unityRecv == 'y') {
+      //blinkerYELLOW();
+      digitalWrite(ledPinY, HIGH);
+      digitalWrite(ledPinB, LOW);
+    } 
+  }
+
+  //blinker();
+}
+
+void blinkerBLUE() {
+  digitalWrite(ledPinB, HIGH);  // sets the digital pin 13 on
+  delay(300);                   // waits for a second
+  digitalWrite(ledPinB, LOW);   // sets the digital pin 13 off
+  delay(300);
+}
+
+void blinkerYELLOW() {
+  digitalWrite(ledPinY, HIGH);  // sets the digital pin 13 on
+  delay(300);                   // waits for a second
+  digitalWrite(ledPinY, LOW);   // sets the digital pin 13 off
+  delay(300);
+}
