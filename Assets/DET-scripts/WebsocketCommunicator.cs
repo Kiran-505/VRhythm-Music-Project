@@ -63,7 +63,10 @@ public class WebsocketCommunicator : MonoBehaviour
                 var force = drumForceValues[i];
                 if (force > 10 && !drumSoundPlaying[i])
                 {
-                    Debug.Log("Drum play " + i);
+					if (showDebug)
+					{
+                        Debug.Log("Drum play " + i);
+                    }
                     drumSoundPlaying[i] = true;
                     drumObjects[i].GetComponent<AudioSource>().PlayOneShot(drumAudioClips[i], audioVolume);
                     drumObjects[i].GetComponent<Renderer>().material.color = new Color(0, 1.0f, 0);
@@ -71,7 +74,10 @@ public class WebsocketCommunicator : MonoBehaviour
                 }
                 else if(force == 0)
                 {
-                    Debug.Log("inside else " + i);
+                    if (showDebug)
+                    {
+                        Debug.Log("inside else " + i);
+                    }
                     drumSoundPlaying[i] = false;
                     drumObjects[i].GetComponent<Renderer>().material.color = defaultDrumColor;
                 }
