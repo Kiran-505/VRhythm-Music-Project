@@ -55,6 +55,7 @@
     <string>Fire Emblem 3 - Theme</string>
     <string>Higelin Jacques - Champagne</string>
     <string>kakariko</string>
+    <string>kick &amp; snare</string>
     <string>ladolcevita</string>
     <string>Leo Ferre - Avec le temps</string>
     <string>Liszt - La Campanella</string>
