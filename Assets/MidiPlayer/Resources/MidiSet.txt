@@ -13,7 +13,6 @@
   <MidiFiles>
     <string>@ All Rights Reserved for these Midi Files</string>
     <string>[C2] all midi</string>
-    <string>[C2] all midi w: metronome</string>
     <string>Albinoni - Adagio</string>
     <string>All Night Long</string>
     <string>Animal Crossing</string>
