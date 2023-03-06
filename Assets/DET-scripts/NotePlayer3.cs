@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NotePlayer : MonoBehaviour
+public class NotePlayer3 : MonoBehaviour
 {
     public MidiStreamPlayer midiStreamPlayer;
     public MidiFilePlayer midiFilePlayer;
@@ -35,29 +35,37 @@ public class NotePlayer : MonoBehaviour
     public void NotesToPlay(List<MPTKEvent> notes)
     {
 
-       // Debug.Log(midiFilePlayer.MPTK_PlayTime.ToString() + " count:" + notes.Count);
+        Debug.Log(midiFilePlayer.MPTK_PlayTime.ToString() + " count:" + notes.Count);
         foreach (MPTKEvent mptkEvent in notes)
         {
             var note = mptkEvent;
             switch (mptkEvent.Command)
             {
                 case MPTKCommand.NoteOn:
-                  //  Debug.Log($"NoteOn Channel:{note.Channel}  Preset index:{midiStreamPlayer.MPTK_ChannelPresetGetIndex(note.Channel)}  Preset name:{midiStreamPlayer.MPTK_ChannelPresetGetName(note.Channel)}");
-                   
-                    if (notesPlayed >= drums.Length)
+                    Debug.Log($"NoteOn Channel:{note.Channel}  Preset index:{midiStreamPlayer.MPTK_ChannelPresetGetIndex(note.Channel)}  Preset name:{midiStreamPlayer.MPTK_ChannelPresetGetName(note.Channel)}");
+
+                    Debug.Log(notesPlayed);
+                    if (mptkEvent.Value == 36)
                     {
-                        notesPlayed = 0;
+                        Vector3 drumPosition = drums[0].transform.position;
+                        GameObject instantiatedNote = Instantiate(fallingNote, new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
+                        instantiatedNote.SetActive(true);
+                        instantiatedNote.GetComponent<DestroyOnTouch>().midiStreamPlayer = midiStreamPlayer;
+                        instantiatedNote.GetComponent<DestroyOnTouch>().note = note;
                     }
-                 //   Debug.Log(notesPlayed);
-                    Debug.Log(mptkEvent.Value);
-                    Vector3 drumPosition = drums[notesPlayed].transform.position;
-                    GameObject instantiatedNote = Instantiate(fallingNote, new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
-                    instantiatedNote.SetActive(true);
-                    instantiatedNote.GetComponent<DestroyOnTouch>().midiStreamPlayer = midiStreamPlayer;
-                    instantiatedNote.GetComponent<DestroyOnTouch>().note = note;
+                    else if (mptkEvent.Value == 38)
+                    {
+                        Vector3 drumPosition = drums[1].transform.position;
+                        GameObject instantiatedNote = Instantiate(fallingNote, new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
+                        instantiatedNote.SetActive(true);
+                        instantiatedNote.GetComponent<DestroyOnTouch>().midiStreamPlayer = midiStreamPlayer;
+                        instantiatedNote.GetComponent<DestroyOnTouch>().note = note;
+                    }
+                    else
+                    {
+                        Debug.Log($"Note {note.Value} not compatible");
+                    }
                     notesPlayed++;
-                 
-                  
                     if (mptkEvent.Value > 40 && mptkEvent.Value < 100)// && note.Channel==1)
                     {
                     }
@@ -76,6 +84,6 @@ public class NotePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

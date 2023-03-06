@@ -12,6 +12,7 @@
   <IndexSelectedSF>0</IndexSelectedSF>
   <MidiFiles>
     <string>@ All Rights Reserved for these Midi Files</string>
+    <string>[C2] all midi</string>
     <string>Albinoni - Adagio</string>
     <string>All Night Long</string>
     <string>Animal Crossing</string>
@@ -56,6 +57,7 @@
     <string>Higelin Jacques - Champagne</string>
     <string>kakariko</string>
     <string>kick &amp; snare</string>
+    <string>kick &amp; snare 1</string>
     <string>ladolcevita</string>
     <string>Leo Ferre - Avec le temps</string>
     <string>Liszt - La Campanella</string>
