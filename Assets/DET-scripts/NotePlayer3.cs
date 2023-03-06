@@ -13,6 +13,7 @@ public class NotePlayer3 : MonoBehaviour
     private float yOffset = 1.2f;
     public GameObject fallingNote;
     int notesPlayed = 0;
+    bool metronomeSoundStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,16 @@ public class NotePlayer3 : MonoBehaviour
     }
     public void NotesToPlay(List<MPTKEvent> notes)
     {
+        if(!metronomeSoundStarted)
+        {
+            var desk = GameObject.FindGameObjectWithTag("Desk");
+            if(desk)
+            {
+                desk.GetComponent<AudioSource>().loop = true;
+                desk.GetComponent<AudioSource>().Play();
+            }
+            metronomeSoundStarted = true;
+        }
         // loops through all notes in MIDI file
         foreach (MPTKEvent note in notes)
         {
