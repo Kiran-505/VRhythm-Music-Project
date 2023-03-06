@@ -34,50 +34,59 @@ public class NotePlayer3 : MonoBehaviour
     }
     public void NotesToPlay(List<MPTKEvent> notes)
     {
-
-        Debug.Log(midiFilePlayer.MPTK_PlayTime.ToString() + " count:" + notes.Count);
-        foreach (MPTKEvent mptkEvent in notes)
+        // loops through all notes in MIDI file
+        foreach (MPTKEvent note in notes)
         {
-            var note = mptkEvent;
-            switch (mptkEvent.Command)
+            // variable holding pad value
+            int pad;
+            // Switch statement checking note value to send to correct pad
+            switch (note.Value)
             {
-                case MPTKCommand.NoteOn:
-                    Debug.Log($"NoteOn Channel:{note.Channel}  Preset index:{midiStreamPlayer.MPTK_ChannelPresetGetIndex(note.Channel)}  Preset name:{midiStreamPlayer.MPTK_ChannelPresetGetName(note.Channel)}");
-
-                    Debug.Log(notesPlayed);
-                    if (mptkEvent.Value == 36)
-                    {
-                        Vector3 drumPosition = drums[0].transform.position;
-                        GameObject instantiatedNote = Instantiate(fallingNote, new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
-                        instantiatedNote.SetActive(true);
-                        instantiatedNote.GetComponent<DestroyOnTouch>().midiStreamPlayer = midiStreamPlayer;
-                        instantiatedNote.GetComponent<DestroyOnTouch>().note = note;
-                    }
-                    else if (mptkEvent.Value == 38)
-                    {
-                        Vector3 drumPosition = drums[1].transform.position;
-                        GameObject instantiatedNote = Instantiate(fallingNote, new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
-                        instantiatedNote.SetActive(true);
-                        instantiatedNote.GetComponent<DestroyOnTouch>().midiStreamPlayer = midiStreamPlayer;
-                        instantiatedNote.GetComponent<DestroyOnTouch>().note = note;
-                    }
-                    else
-                    {
-                        Debug.Log($"Note {note.Value} not compatible");
-                    }
-                    notesPlayed++;
-                    if (mptkEvent.Value > 40 && mptkEvent.Value < 100)// && note.Channel==1)
-                    {
-                    }
+                // Kick
+                case (36):
+                    pad = 3;
+                    playNote(note, pad);
                     break;
 
-                case MPTKCommand.PatchChange:
-                    {
-                        Debug.Log($"PatchChange Channel:{note.Channel}  Preset index:{note.Value}");
-                    }
+                // Snare
+                case (38):
+                    pad = 0;
+                    playNote(note, pad);
+                    break;
+
+                // Hi-hat
+                case (42):
+                    pad = 1;
+                    playNote(note, pad);
+                    break;
+
+                // Crash?
+                case (40):
+                    pad = 2;
+                    playNote(note, pad);
+                    break;
+
+                default:
+                    Debug.Log($"Value {note.Value} not supported");
                     break;
             }
+
+            Debug.Log($"Note {notesPlayed} - Channel: {note.Channel}, Value: {note.Value}");
+            notesPlayed++;
+            break;
         }
+    }
+    // Instantiates falling object for a note
+    public void playNote(MPTKEvent note, int pad)
+    {
+        Vector3 drumPosition = drums[pad].transform.position;
+        GameObject instantiatedNote = Instantiate(fallingNote, new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
+        instantiatedNote.SetActive(true);
+        instantiatedNote.GetComponent<DestroyOnTouch>().midiStreamPlayer = midiStreamPlayer;
+        instantiatedNote.GetComponent<DestroyOnTouch>().note = note;
+
+        // Old log
+        // Debug.Log($"NoteOn Channel:{note.Channel}  Preset index:{midiStreamPlayer.MPTK_ChannelPresetGetIndex(note.Channel)}  Preset name:{midiStreamPlayer.MPTK_ChannelPresetGetName(note.Channel)}");
     }
 
 

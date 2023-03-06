@@ -12,7 +12,9 @@
   <IndexSelectedSF>0</IndexSelectedSF>
   <MidiFiles>
     <string>@ All Rights Reserved for these Midi Files</string>
-    <string>[C2] all midi</string>
+    <string>[80] Metronome</string>
+    <string>[C2] all midi _1_</string>
+    <string>[C2] all midi w_ metronome</string>
     <string>Albinoni - Adagio</string>
     <string>All Night Long</string>
     <string>Animal Crossing</string>
