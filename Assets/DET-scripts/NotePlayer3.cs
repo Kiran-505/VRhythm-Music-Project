@@ -14,6 +14,14 @@ public class NotePlayer3 : MonoBehaviour
     public GameObject fallingNote;
     int notesPlayed = 0;
     bool metronomeSoundStarted = false;
+    public AudioClip missedSound;
+
+
+    public void PlayMissedNote()
+    {
+        GetComponent<AudioSource>().PlayOneShot(missedSound);
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,8 +101,10 @@ public class NotePlayer3 : MonoBehaviour
         Vector3 drumPosition = drums[pad].transform.position;
         GameObject instantiatedNote = Instantiate(fallingNote, new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
         instantiatedNote.SetActive(true);
-        instantiatedNote.GetComponent<DestroyOnTouch>().midiStreamPlayer = midiStreamPlayer;
-        instantiatedNote.GetComponent<DestroyOnTouch>().note = note;
+        var destroyOnTouch = instantiatedNote.GetComponent<DestroyOnTouch>();
+        destroyOnTouch.midiStreamPlayer = midiStreamPlayer;
+        destroyOnTouch.note = note;
+        destroyOnTouch.pad = pad;
 
         // Old log
         // Debug.Log($"NoteOn Channel:{note.Channel}  Preset index:{midiStreamPlayer.MPTK_ChannelPresetGetIndex(note.Channel)}  Preset name:{midiStreamPlayer.MPTK_ChannelPresetGetName(note.Channel)}");

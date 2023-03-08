@@ -7,6 +7,12 @@ TagManager:
   - SamplesInfoPanel
   - Drumstick
   - Desk
+  - Red
+  - Green
+  - Blue
+  - Note
+  - Arduino
+  - NotePlayer
   layers:
   - Default
   - TransparentFX

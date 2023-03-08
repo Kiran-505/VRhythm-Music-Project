@@ -14,12 +14,14 @@ public class WebsocketCommunicator : MonoBehaviour
 	private WebSocket webSocket;
 
     private int[] drumForceValues;
-    private bool[] drumSoundPlaying;
     public AudioClip[] drumAudioClips;
     public GameObject[] drumObjects;
     private Color defaultDrumColor;
-    public float audioVolume = 0.9f;
 
+	public int GetSensorValue(int sensorIndex)
+	{
+		return drumForceValues[sensorIndex];
+	}
 
     private void initWebSocket() //Starts WebSocket Client Connection
 	{
@@ -61,14 +63,12 @@ public class WebsocketCommunicator : MonoBehaviour
             for (int i = 0; i < drumForceValues.Length; i++)
             {
                 var force = drumForceValues[i];
-                if (force > 10 && !drumSoundPlaying[i])
+                if (force > 10)
                 {
 					if (showDebug)
 					{
                         Debug.Log("Drum play " + i);
                     }
-                    drumSoundPlaying[i] = true;
-                    drumObjects[i].GetComponent<AudioSource>().PlayOneShot(drumAudioClips[i], audioVolume);
                     drumObjects[i].GetComponent<Renderer>().material.color = new Color(0, 1.0f, 0);
 
                 }
@@ -78,7 +78,6 @@ public class WebsocketCommunicator : MonoBehaviour
                     {
                         Debug.Log("inside else " + i);
                     }
-                    drumSoundPlaying[i] = false;
                     drumObjects[i].GetComponent<Renderer>().material.color = defaultDrumColor;
                 }
             }
@@ -89,8 +88,8 @@ public class WebsocketCommunicator : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-        drumSoundPlaying = new bool[drumAudioClips.Length];
         defaultDrumColor = drumObjects[0].GetComponent<Renderer>().material.color;
+		drumForceValues = new int[drumObjects.Length];
         initWebSocket();
 		Debug.Log("Started");
 		
