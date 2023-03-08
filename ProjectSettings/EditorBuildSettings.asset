@@ -26,9 +26,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/DET-scenes/Kiran 2.unity
     guid: d72144c8d411e6c40ae8b7b8847cb73c
-  - enabled: 1
+  - enabled: 0
     path: Assets/DET-scenes/Main - Square Pads.unity
     guid: 41a69f50ad925455996d63408b3557dc
+  - enabled: 1
+    path: Assets/DET-scenes/Main - Square Pads, colocation testing & calibrating.unity
+    guid: 6509c64d39ac38949b80649dd01268b8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 64652425da81359498c21d9a785f44bc, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f5f343ec017b7ee47ae7878422d03a5e, type: 2}
