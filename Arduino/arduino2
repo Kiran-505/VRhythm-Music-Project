@@ -1,0 +1,45 @@
+long int duration = 30;
+long int timeStamp = 0;
+
+int piezo2 = 0; // the piezo is connected to analog pin A2 on Arduino
+int piezo3 = 0; // the piezo is connected to analog pin A3 on Arduino
+int piezo4 = 0; // the piezo is connected to analog pin A4 on Arduino
+int piezo5 = 0; // the piezo is connected to analog pin A5 on Arduino
+
+int piezoThreshold = 70;
+
+void setup() {
+  timeStamp = millis();
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  // read the sensor and store it in the variable sensorReading of Piezos:
+  piezo2 = analogRead(A2);
+  piezo3 = analogRead(A3);
+  piezo4 = analogRead(A4);
+  piezo5 = analogRead(A5);
+
+  if (piezo2 > piezoThreshold || piezo3 > piezoThreshold || piezo4 > piezoThreshold || piezo5 > piezoThreshold) {
+
+    timeStamp = millis();
+
+    if ((millis() - timeStamp) < duration) {
+      Serial.print(piezo5);
+      Serial.print(",");
+      Serial.print(piezo2);
+      Serial.print(",");
+      Serial.print(piezo3);
+      Serial.print(",");
+      Serial.print(piezo4);
+      Serial.println();
+    }
+    Serial.flush();
+    piezo2 = 0;
+    piezo3 = 0;
+    piezo4 = 0;
+    piezo5 = 0;
+  }
+  
+}
