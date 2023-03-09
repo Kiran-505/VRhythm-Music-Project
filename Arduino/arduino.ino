@@ -10,7 +10,7 @@ void setup()
 
 void loop()
 {
-    forceVal1 = analogRead(A1);
+    forceVal1 = analogRead(A5);
     forceVal2 = analogRead(A2);
     forceVal3 = analogRead(A3);
     forceVal4 = analogRead(A4);
@@ -18,9 +18,9 @@ void loop()
     Serial.print(",");
     Serial.print(forceVal2);
     Serial.print(",");
-    Serial.print(0);
+    Serial.print(forceVal3);
     Serial.print(",");
-    Serial.print(0);
+    Serial.print(forceVal4);
     Serial.println();
-    delay(10);
+    delay(2);
 }
