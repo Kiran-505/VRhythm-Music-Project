@@ -6,34 +6,34 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/DET-scenes/plate1.unity
+    path: Assets/DET-scenes/Archive/plate1.unity
     guid: 10fb1223b2365574b92a6f3f001752ae
   - enabled: 0
-    path: Assets/DET-scenes/Guitar.unity
+    path: Assets/DET-scenes/Archive/Guitar.unity
     guid: e451faa507bcd864bae949d63b582eb2
   - enabled: 0
-    path: Assets/DET-scenes/Guitar 2.unity
+    path: Assets/DET-scenes/Archive/Guitar 2.unity
     guid: bf23c0a324e756e45b0c2d5503614be1
   - enabled: 0
-    path: Assets/DET-scenes/Guitar 3.unity
+    path: Assets/DET-scenes/Archive/Guitar 3.unity
     guid: b8f9a237e4f286a4b8fb6f8652fb98db
   - enabled: 0
-    path: Assets/DET-scenes/HelloworldDemo.unity
+    path: Assets/DET-scenes/Archive/HelloworldDemo.unity
     guid: cf45d1865040f7e449c89f3b46b963bb
   - enabled: 0
-    path: Assets/DET-scenes/Kiran.unity
+    path: Assets/DET-scenes/Archive/Kiran.unity
     guid: fd1d56fd18f773e48ba993728905d27b
   - enabled: 0
-    path: Assets/DET-scenes/Kiran 2.unity
+    path: Assets/DET-scenes/Archive/Kiran 2.unity
     guid: d72144c8d411e6c40ae8b7b8847cb73c
   - enabled: 0
-    path: Assets/DET-scenes/Main - Square Pads.unity
+    path: Assets/DET-scenes/Archive/Main - Square Pads.unity
     guid: 41a69f50ad925455996d63408b3557dc
   - enabled: 0
-    path: Assets/DET-scenes/Main - Square Pads 1.unity
+    path: Assets/DET-scenes/Archive/Main - Square Pads 1.unity
     guid: 5dae11638efcd0c41aaa4af83a2f06b1
   - enabled: 1
-    path: Assets/DET-scenes/Main - Colocation, Testing & Calibrating.unity
+    path: Assets/DET-scenes/Main 0.1.1.unity
     guid: f6e785ac20185e443966bff385f5e89b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 64652425da81359498c21d9a785f44bc, type: 2}
