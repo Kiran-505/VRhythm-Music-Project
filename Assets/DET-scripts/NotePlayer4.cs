@@ -12,7 +12,6 @@ public class NotePlayer4 : MonoBehaviour
     public GameObject[] drums;
     public GameObject[] notes;
     private float yOffset = 1.2f;
-    public GameObject fallingNote;
     int notesPlayed = 0;
     bool metronomeSoundStarted = false;
     public AudioClip missedSound;
@@ -91,7 +90,7 @@ public class NotePlayer4 : MonoBehaviour
                     break;
             }
 
-            Debug.Log($"Note {notesPlayed} - Channel: {note.Channel}, Value: {note.Value}");
+            // Debug.Log($"Note {notesPlayed} - Channel: {note.Channel}, Value: {note.Value}");
             notesPlayed++;
             break;
         }
@@ -102,7 +101,7 @@ public class NotePlayer4 : MonoBehaviour
         Vector3 drumPosition = drums[pad].transform.position;
         GameObject instantiatedNote = Instantiate(notes[pad], new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
         instantiatedNote.SetActive(true);
-        var destroyOnTouch = instantiatedNote.GetComponent<DestroyOnTouch>();
+        var destroyOnTouch = instantiatedNote.GetComponent<DestroyOnTouch2>();
         destroyOnTouch.midiStreamPlayer = midiStreamPlayer;
         //passing current note and pad number to the script
         destroyOnTouch.note = note;
