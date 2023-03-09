@@ -7,7 +7,7 @@ public class DestroyOnTouch : MonoBehaviour
 {
     public MidiStreamPlayer midiStreamPlayer;
     public MPTKEvent note;
-    public int pad;
+    public int pad = -1;
     private WebsocketCommunicator communicator;
     private float originalY;
 
@@ -23,9 +23,13 @@ public class DestroyOnTouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pad == -1) //if pad is not assigned yet do nothing
+        {
+            return;
+        }
         //checks if the desired pad is pressed by the user
         int sensorValue = communicator.GetSensorValue(pad);
-        if (sensorValue > 10  && originalY - this.transform.position.y  > 0.1f)
+        if (sensorValue > 10  && originalY - this.transform.position.y  > 0.8f)
         {
             padPress = true;
             midiStreamPlayer.MPTK_PlayEvent(note);

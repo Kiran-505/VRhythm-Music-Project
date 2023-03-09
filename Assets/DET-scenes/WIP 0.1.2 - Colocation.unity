@@ -1223,7 +1223,7 @@ MonoBehaviour:
   - {fileID: 881591124}
   - {fileID: 1370480815}
   fallingNote: {fileID: 1836938142}
-  missedSound: {fileID: 8300000, guid: d18cf993bf2af2f4aba9d868c3089275, type: 3}
+  missedSound: {fileID: 8300000, guid: fb510067135f9b84faed37f797b2c6c9, type: 3}
 --- !u!82 &251005128
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2674,7 +2674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showDebug: 0
-  computerIP: 10.204.0.48
+  computerIP: 192.168.30.153
   drumAudioClips:
   - {fileID: 8300000, guid: a9abe8c799696ad43b5bea7c4c49cfa8, type: 3}
   - {fileID: 8300000, guid: 6fff4e94298146549b96a09a3d09d556, type: 3}

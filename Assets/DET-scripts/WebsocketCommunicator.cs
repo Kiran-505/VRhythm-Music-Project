@@ -14,13 +14,12 @@ public class WebsocketCommunicator : MonoBehaviour
 	private WebSocket webSocket;
 
     private int[] drumForceValues;
-    public AudioClip[] drumAudioClips;
     public GameObject[] drumObjects;
     private Color defaultDrumColor;
 
 	public int GetSensorValue(int sensorIndex)
 	{
-		return drumForceValues[sensorIndex];
+		return drumForceValues[sensorIndex]; //get sensor value for the sensor# thats passed in as argument
 	}
 
     private void initWebSocket() //Starts WebSocket Client Connection
