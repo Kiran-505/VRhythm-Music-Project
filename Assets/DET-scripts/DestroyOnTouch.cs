@@ -10,7 +10,10 @@ public class DestroyOnTouch : MonoBehaviour
     public int pad;
     private WebsocketCommunicator communicator;
     private float originalY;
+
     // Start is called before the first frame update
+
+    private bool padPress = false;
     void Start()
     {
         communicator = GameObject.FindGameObjectWithTag("Arduino").GetComponent<WebsocketCommunicator>();
@@ -20,9 +23,11 @@ public class DestroyOnTouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checks if the desired pad is pressed by the user
         int sensorValue = communicator.GetSensorValue(pad);
         if (sensorValue > 10  && originalY - this.transform.position.y  > 0.1f)
         {
+            padPress = true;
             midiStreamPlayer.MPTK_PlayEvent(note);
             Destroy(this.gameObject);
         }
@@ -31,7 +36,11 @@ public class DestroyOnTouch : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Play miss music
-        GameObject.FindGameObjectWithTag("NotePlayer").GetComponent<NotePlayer3>().PlayMissedNote();
+        if (!padPress)
+        {
+            GameObject.FindGameObjectWithTag("NotePlayer").GetComponent<NotePlayer3>().PlayMissedNote();
+        }
+        Debug.Log("Note collision");
         Destroy(this.gameObject);
         
     }

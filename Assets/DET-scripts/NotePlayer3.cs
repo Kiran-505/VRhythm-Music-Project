@@ -103,6 +103,7 @@ public class NotePlayer3 : MonoBehaviour
         instantiatedNote.SetActive(true);
         var destroyOnTouch = instantiatedNote.GetComponent<DestroyOnTouch>();
         destroyOnTouch.midiStreamPlayer = midiStreamPlayer;
+        //passing current note and pad number to the script
         destroyOnTouch.note = note;
         destroyOnTouch.pad = pad;
 

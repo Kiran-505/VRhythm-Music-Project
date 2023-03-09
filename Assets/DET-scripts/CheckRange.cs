@@ -27,7 +27,7 @@ public class CheckRange : MonoBehaviour
     {
         noteHeight = noteObject.transform.position.y;
         
-        if (noteHeight <= tableHeight + 0.15f & noteHeight >= tableHeight - 0.15f) 
+        if (noteHeight <= tableHeight + 0.15f && noteHeight >= tableHeight - 0.15f) 
         {
             insideRange = true;
             Debug.Log(noteHeight);
