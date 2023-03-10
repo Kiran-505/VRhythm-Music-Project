@@ -16,7 +16,7 @@ def new_client(client, server):
 
 #Gets Arduino Serial Data such as Potentiometer and Button values
 def listen_to_arduino(server):
-    arduino = serial.Serial('COM10', 9600, timeout=.1)
+    arduino = serial.Serial('COM15', 9600, timeout=.1)
     while True:
         data = arduino.readline()
         if data:
