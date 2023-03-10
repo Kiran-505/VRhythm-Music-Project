@@ -67,7 +67,7 @@ public class DestroyOnTouch2 : MonoBehaviour
         {
             Debug.Log("Missed beat");
             // Play missed beat sound
-            GetComponent<AudioSource>().PlayOneShot(missedSound);
+            GameObject.FindGameObjectWithTag("NotePlayer").GetComponent<NotePlayer4>().PlayMissedNote();
             Destroy(this.gameObject);
             
         }
