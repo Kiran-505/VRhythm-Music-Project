@@ -6,8 +6,15 @@ using NativeWebSocket;
 using System.Runtime.CompilerServices;
 using System;
 
+public enum GameMode
+{
+	FREEPLAY, 
+	DEFAULT
+}
+
 public class WebsocketCommunicator : MonoBehaviour
 {
+	public GameMode gameMode = GameMode.DEFAULT;
 	public bool showDebug; //Turn this on to show Sensor values
 	public string computerIP;
 	private int webSocketPort = 32323;
@@ -70,6 +77,12 @@ public class WebsocketCommunicator : MonoBehaviour
                     }
                     drumObjects[i].GetComponent<Renderer>().material.color = new Color(0, 1.0f, 0);
 
+                    
+                    if (gameMode== GameMode.FREEPLAY)
+					{
+                        var audioSource = drumObjects[i].GetComponent<AudioSource>();
+                        audioSource.PlayOneShot(audioSource.clip);
+                    }
                 }
                 else if(force == 0)
                 {

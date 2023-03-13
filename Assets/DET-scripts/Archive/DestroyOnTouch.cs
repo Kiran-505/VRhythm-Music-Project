@@ -29,7 +29,7 @@ public class DestroyOnTouch : MonoBehaviour
         }
         //checks if the desired pad is pressed by the user
         int sensorValue = communicator.GetSensorValue(pad);
-        if (sensorValue > 10  && originalY - this.transform.position.y  > 0.8f)
+        if (sensorValue > 5  && originalY - this.transform.position.y  > 0.8f)
         {
             padPress = true;
             midiStreamPlayer.MPTK_PlayEvent(note);
