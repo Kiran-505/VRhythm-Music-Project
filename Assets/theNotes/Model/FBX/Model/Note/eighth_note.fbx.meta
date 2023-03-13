@@ -1,42 +1,95 @@
 fileFormatVersion: 2
 guid: 9c5de2544f51f0b4189eb6a4a5b38ace
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: eighth_note
-    100004: j_ball
-    100006: j_flag1
-    100008: j_flag2
-    100010: j_flag3
-    100012: j_head
-    100014: j_Root
-    100016: j_spine1
-    100018: j_spine2
-    100020: j_spine3
-    400000: //RootNode
-    400002: eighth_note
-    400004: j_ball
-    400006: j_flag1
-    400008: j_flag2
-    400010: j_flag3
-    400012: j_head
-    400014: j_Root
-    400016: j_spine1
-    400018: j_spine2
-    400020: j_spine3
-    4300000: eighth_note
-    9500000: //RootNode
-    13700000: eighth_note
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: eighth_note
+  - first:
+      1: 100004
+    second: j_ball
+  - first:
+      1: 100006
+    second: j_flag1
+  - first:
+      1: 100008
+    second: j_flag2
+  - first:
+      1: 100010
+    second: j_flag3
+  - first:
+      1: 100012
+    second: j_head
+  - first:
+      1: 100014
+    second: j_Root
+  - first:
+      1: 100016
+    second: j_spine1
+  - first:
+      1: 100018
+    second: j_spine2
+  - first:
+      1: 100020
+    second: j_spine3
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: eighth_note
+  - first:
+      4: 400004
+    second: j_ball
+  - first:
+      4: 400006
+    second: j_flag1
+  - first:
+      4: 400008
+    second: j_flag2
+  - first:
+      4: 400010
+    second: j_flag3
+  - first:
+      4: 400012
+    second: j_head
+  - first:
+      4: 400014
+    second: j_Root
+  - first:
+      4: 400016
+    second: j_spine1
+  - first:
+      4: 400018
+    second: j_spine2
+  - first:
+      4: 400020
+    second: j_spine3
+  - first:
+      43: 4300000
+    second: eighth_note
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: eighth_note
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -44,12 +97,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -57,26 +113,47 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 1
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -86,15 +163,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: j_Root
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e1bd38362f71e7f4b9c907f7310c29ac,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e1bd38362f71e7f4b9c907f7310c29ac, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
