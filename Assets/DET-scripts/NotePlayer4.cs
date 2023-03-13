@@ -3,6 +3,7 @@ using MPTKDemoCatchMusic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using UnityEngine;
 
 public class NotePlayer4 : MonoBehaviour
@@ -26,7 +27,6 @@ public class NotePlayer4 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         if (midiFilePlayer != null)
         {
             // If call is already set from the inspector there is no need to set another listeneer
@@ -101,6 +101,7 @@ public class NotePlayer4 : MonoBehaviour
         Vector3 drumPosition = drums[pad].transform.position;
         GameObject instantiatedNote = Instantiate(notes[pad], new Vector3(drumPosition.x, drumPosition.y + yOffset, drumPosition.z), Quaternion.identity);
         instantiatedNote.SetActive(true);
+        instantiatedNote.transform.Rotate(0, 180, 0);
         var destroyOnTouch = instantiatedNote.GetComponent<DestroyOnTouch2>();
         destroyOnTouch.midiStreamPlayer = midiStreamPlayer;
         //passing current note and pad number to the script

@@ -33,10 +33,10 @@ EditorBuildSettings:
     path: Assets/DET-scenes/Archive/Main - Square Pads 1.unity
     guid: 5dae11638efcd0c41aaa4af83a2f06b1
   - enabled: 0
-    path: Assets/DET-scenes/Main 0.1.1.unity
+    path: Assets/DET-scenes/Archive/Main 0.1.1.unity
     guid: f6e785ac20185e443966bff385f5e89b
   - enabled: 0
-    path: Assets/DET-scenes/WIP 0.1.2 - Colocation.unity
+    path: Assets/DET-scenes/Archive/WIP 0.1.2 - Colocation.unity
     guid: 39f9ddb131c456149997778b4d8d0c43
   - enabled: 0
     path: Assets/DET-scenes/Archive/Karan 0.1.1.unity
@@ -44,6 +44,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DET-scenes/FreePlayMode.unity
     guid: bae6601ef9e771344aa1bd20a8aaeda5
+  - enabled: 1
+    path: Assets/DET-scenes/Default.unity
+    guid: 592b20a32a5177c48bf3e588fbaf9a4c
+  - enabled: 1
+    path: Assets/DET-scenes/StartGuidedMode.unity
+    guid: acc1e7429e83557408d8210c5ed29d79
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 64652425da81359498c21d9a785f44bc, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f5f343ec017b7ee47ae7878422d03a5e, type: 2}

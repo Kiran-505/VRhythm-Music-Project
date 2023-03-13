@@ -31,8 +31,8 @@ namespace Oculus.Interaction
 
         protected virtual void Start()
         {
-            this.AssertField(_text, nameof(_text));
-            _text.text = "Version: " + Application.version;
+            //this.AssertField(_text, nameof(_text));
+            //_text.text = "Version: " + Application.version;
         }
 
         #region Inject

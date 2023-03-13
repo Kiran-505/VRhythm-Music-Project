@@ -9,7 +9,8 @@ using System;
 public enum GameMode
 {
 	FREEPLAY, 
-	DEFAULT
+	DEFAULT,
+	GUIDED
 }
 
 public class WebsocketCommunicator : MonoBehaviour
@@ -113,7 +114,12 @@ public class WebsocketCommunicator : MonoBehaviour
 		webSocket.DispatchMessageQueue();
 
     }
-	
+
+	private async void OnDestroy()
+	{
+        await webSocket.Close();
+    }
+
 
 	private async void OnApplicationQuit() //Closes Websocket Connection Correctly when app is closed
 	{
