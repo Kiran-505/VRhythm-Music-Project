@@ -5,6 +5,7 @@ using UnityEngine;
 using NativeWebSocket;
 using System.Runtime.CompilerServices;
 using System;
+using System.Media;
 
 public enum GameMode
 {
@@ -24,8 +25,9 @@ public class WebsocketCommunicator : MonoBehaviour
     private int[] drumForceValues;
     public GameObject[] drumObjects;
     private Color defaultDrumColor;
+	private bool[] soundPlayed;
 
-	public int GetSensorValue(int sensorIndex)
+    public int GetSensorValue(int sensorIndex)
 	{
 		return drumForceValues[sensorIndex]; //get sensor value for the sensor# thats passed in as argument
 	}
@@ -70,7 +72,7 @@ public class WebsocketCommunicator : MonoBehaviour
             for (int i = 0; i < drumForceValues.Length; i++)
             {
                 var force = drumForceValues[i];
-                if (force > 10)
+                if (force > 70)
                 {
 					if (showDebug)
 					{
@@ -79,10 +81,11 @@ public class WebsocketCommunicator : MonoBehaviour
                     drumObjects[i].GetComponent<Renderer>().material.color = new Color(0, 1.0f, 0);
 
                     
-                    if (gameMode== GameMode.FREEPLAY)
+                    if (gameMode == GameMode.FREEPLAY && !soundPlayed[i])
 					{
                         var audioSource = drumObjects[i].GetComponent<AudioSource>();
                         audioSource.PlayOneShot(audioSource.clip);
+						soundPlayed[i] = true;
                     }
                 }
                 else if(force == 0)
@@ -92,6 +95,7 @@ public class WebsocketCommunicator : MonoBehaviour
                         Debug.Log("inside else " + i);
                     }
                     drumObjects[i].GetComponent<Renderer>().material.color = defaultDrumColor;
+					soundPlayed[i] = false;
                 }
             }
         }
@@ -103,6 +107,7 @@ public class WebsocketCommunicator : MonoBehaviour
 	{
         defaultDrumColor = drumObjects[0].GetComponent<Renderer>().material.color;
 		drumForceValues = new int[drumObjects.Length];
+		soundPlayed = new bool[drumObjects.Length];
         initWebSocket();
 		Debug.Log("Started");
 		
@@ -114,10 +119,16 @@ public class WebsocketCommunicator : MonoBehaviour
 		webSocket.DispatchMessageQueue();
 
     }
-
-	private async void OnDestroy()
-	{
-        await webSocket.Close();
+    private async void OnDestroy()
+    {
+        try
+        {
+            await webSocket.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Got exception");
+        }
     }
 
 
