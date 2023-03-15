@@ -19,6 +19,7 @@ public class WebsocketCommunicator : MonoBehaviour
 	public GameMode gameMode = GameMode.DEFAULT;
 	public bool showDebug; //Turn this on to show Sensor values
 	public string computerIP;
+	// public Sprite onHitSprite;
 	private int webSocketPort = 32323;
 	private WebSocket webSocket;
 
@@ -78,7 +79,8 @@ public class WebsocketCommunicator : MonoBehaviour
 					{
                         Debug.Log("Drum play " + i);
                     }
-                    drumObjects[i].GetComponent<Renderer>().material.color = new Color(0, 1.0f, 0);
+                    drumObjects[i].GetComponent<Renderer>().material.color = new Color(0, 0, 1.0f, 1.0f);
+                    // drumObjects[i].GetComponent<SpriteRenderer>().sprite = onHitSprite;
 
                     
                     if (gameMode == GameMode.FREEPLAY && !soundPlayed[i])
@@ -105,7 +107,7 @@ public class WebsocketCommunicator : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-        defaultDrumColor = drumObjects[0].GetComponent<Renderer>().material.color;
+    defaultDrumColor = drumObjects[0].GetComponent<Renderer>().material.color;
 		drumForceValues = new int[drumObjects.Length];
 		soundPlayed = new bool[drumObjects.Length];
         initWebSocket();
